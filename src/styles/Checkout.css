@@ -1,0 +1,90 @@
+/* Checkout.css */
+.checkout {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.checkout h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.checkout form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.checkout input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.checkout input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.checkout button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.checkout button:hover {
+  background-color: #0056b3;
+}
+
+.checkout h3 {
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+}
+
+.checkout .back-button {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #007bff;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.checkout .back-button:hover {
+  background-color: #f1f1f1;
+  border-color: #007bff;
+}
+
+@media (max-width: 768px) {
+  .checkout {
+    padding: 15px;
+  }
+
+  .checkout h2 {
+    font-size: 1.5rem;
+  }
+
+  .checkout input, .checkout button {
+    font-size: 0.9rem;
+  }
+}
