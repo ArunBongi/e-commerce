@@ -9,18 +9,14 @@ import "./App.css";
 
 const App = () => {
   return (
-    <Router>
-      <CartProvider>
-        <div className="app">
-          <Header />
-          <Routes>
-            <Route path="/" element={<ProductList />} />
-            <Route path="/cart" element={<ShoppingCartPage />} />
-            <Route path="/checkout" element={<Checkout />} />
-          </Routes>
-        </div>
-      </CartProvider>
-    </Router>
+    <div className="app">
+      <Header />
+      <Routes>
+        <Route path="/e-commerce" element={<ProductList />} />
+        <Route path="/cart" element={<ShoppingCartPage />} />
+        <Route path="/checkout" element={<Checkout />} />
+      </Routes>
+    </div>
   );
 };
 

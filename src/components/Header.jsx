@@ -10,7 +10,7 @@ function Header() {
   return (
     <header className="header">
       <div className="header-content">
-        <Link to="/" className="logo">
+        <Link to="/e-commerce" className="logo">
           E-commerce Store
         </Link>
         <nav>

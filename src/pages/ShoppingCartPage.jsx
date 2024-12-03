@@ -53,7 +53,7 @@ const ShoppingCartPage = () => {
           </div>
         </>
       )}
-      <Link to="/" className="continue-shopping">
+      <Link to="/e-commerce" className="continue-shopping">
         Continue Shopping
       </Link>
     </div>
