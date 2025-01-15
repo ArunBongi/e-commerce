@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
+import { useAuth } from "../contexts/AuthContext";
 import "../styles/Header.css";
 
-function Header() {
+const Header = () => {
   const { cart } = useCart();
+  const { user, logout } = useAuth();
   const cartItemsCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
@@ -14,7 +16,7 @@ function Header() {
           E-commerce Store
         </Link>
         <nav>
-          <Link to="/" className="nav-link">
+          <Link to="/e-commerce" className="nav-link">
             Home
           </Link>
           <Link to="/cart" className="nav-link cart-link">
@@ -23,10 +25,27 @@ function Header() {
               <span className="cart-count">{cartItemsCount}</span>
             )}
           </Link>
+          {user ? (
+            <>
+              <span className="nav-link">Welcome, {user.email}</span>
+              <button onClick={logout} className="nav-link">
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="nav-link">
+                Login
+              </Link>
+              <Link to="/signup" className="nav-link">
+                Sign Up
+              </Link>
+            </>
+          )}
         </nav>
       </div>
     </header>
   );
-}
+};
 
 export default Header;

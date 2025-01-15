@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
+import { useAuth } from "../contexts/AuthContext";
 import "../styles/Checkout.css";
 
-function Checkout() {
+const Checkout = () => {
   const { cart, setCart } = useCart();
+  const { user } = useAuth();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
@@ -14,6 +16,12 @@ function Checkout() {
     expiryDate: "",
     cvv: "",
   });
+
+  React.useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user, navigate]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -28,6 +36,10 @@ function Checkout() {
   };
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+  if (!user) {
+    return null; // or a loading spinner
+  }
 
   return (
     <div className="checkout">
@@ -87,6 +99,6 @@ function Checkout() {
       <button onClick={() => navigate("/")}>Back to Shopping</button>
     </div>
   );
-}
+};
 
 export default Checkout;
